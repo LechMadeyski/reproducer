@@ -282,7 +282,8 @@ getEffectSizesABBA <- function(simulationData)
   dRM=unstandardizedES/sqrt(var.within)
 
   r=var.between/var.sig
-  N1=N2=length(simulationData$pid)/4
+  N1=N2=length(simulationData$pid)/4 #this statement introduces the problem with the generality of the function getEffectSizesABBA  as it assumes equal numbers of values in each sequence group
+
   df=N1+N2-2
   c=1-3/(4*df-1)
 
