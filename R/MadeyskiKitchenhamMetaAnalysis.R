@@ -767,11 +767,11 @@ proportionOfSignificantTValuesUsingIncorrectAnalysis <- function(data)
 #' @title effectSizeCI
 #' @description 95% Confidence Intervals (CI) on Standardised Effect Sizes (d) for cross-over repeated-measures, before-after repeated-measures, and independent group experimental designs
 #' The procedure is based on finding the upper and lower 0.025 bounds for the related t-variable.
+#' The t-variable needds to be adjusted for bias by multiplying by c
 #' The upper and lower bounds on the t-variable are then used to calculate to upper and lower bounds on the
 #' repeated measures effect size (d_RM) by multiplying the upper and lower bound of the t-variable by sqrt((n1+n2)/(2*(n1*n2))).
 #' Upper and lower bounds on the equivalent independent groups effect size (d_IG) are found by multiplying the upper and lower
 #' bounds on d_RM by sqrt(1-r).
-#' The procedure assumes that a standard t-test has been used. It will not deliver the correct confidence intervals for d_RM or d_IG if Welch's test has been used. Furthermore, it is the responsibility of the procedure user to make sure that standard t-test has been used.
 #' @author Lech Madeyski and Barbara Kitchenham
 #' @export effectSizeCI
 #' @param expDesign Experimental design: 1) crossover repeated measures ("CrossOverRM"), 2) before-after repeated measures (expDesign=="BeforeAfterRM"), 3) independent groups ("IG)
@@ -782,85 +782,78 @@ proportionOfSignificantTValuesUsingIncorrectAnalysis <- function(data)
 #' @param epsilon The precision of the iterative procedure
 #' @param maxsteps The maximum number of steps of the iterative procedure (the procedure terminates at maxsteps or earlier if CI with enough precision have been calculated)
 #' @param stepsize The size of steps (influences the convergence of the calculations, i.e., the number of steps required to obtain the final result of precison defined by the epsilon)
-#' @return A list of Confidence Intervals for: t-statistic (t_LB and t_UB), repeated-measures effect size d_RM (d_RM_LB, d_RM_UB), independent groups effect size (d_IG_LB, d_IG_UB)
+#' @return A list of Confidence Intervals for: t-statistic (t_LB and t_UB), repeted-measures effect size d_RM (d_RM_LB, d_RM_UB), independent groups effect size (d_IG_LB, d_IG_UB)
 #' @examples
-#' r<-effectSizeCI(expDesign="CrossOverRM", t=14.4, n1=15, n2=15, r=0.6401)
-#' r$t_LB
-#' #[1] 10.96781
-#' r$t_UB
-#' #[1] 19.98903
-#' r$d_RM_LB
-#' #[1] 2.831876
-#' r$d_RM_UB
-#' #[1] 5.161144
-#' r$d_IG_LB
-#' #[1] 1.698889
-#' r$d_IG_UB
-#' #[1] 3.096256
-#' r<-effectSizeCI(expDesign = "BeforeAfterRM", t=14.16536, n1=15, n2=15, r=0.6146771)
-#' r$t_LB
-#' #[1] 10.03801
-#' r$t_UB
-#' #[1] 22.73629
-#' r$d_RM_LB
-#' #[1] 2.591803
-#' r$d_RM_UB
-#' #[1] 5.870485
-#' r$d_IG_LB
-#' #[1] 2.275251
-#' r$d_IG_UB
-#' #[1] 5.153489
-#' r<-effectSizeCI(expDesign = "IG", t=-6.344175, n1=15, n2=15)
-#' r$t_LB
-#' #[1] -9.544803
-#' r$t_UB
-#' #[1]-4.135702
-#' r$d_RM_LB
-#' #[1] NA
-#' r$d_RM_UB
-#' #[1] NA
-#' r$d_IG_LB
-#' #[1] -3.485269
-#' r$d_IG_UB
-#' #[1] -1.510145
-#' r<-effectSizeCI(expDesign="CrossOverRM", t=0.5581, n1=6, n2=6, r=0.36135)
-#' r$t_LB
-#' #[1] -1.54704
-#' r$t_UB
-#' #[1] 2.946539
-#' r$d_RM_LB
-#' #[1] -0.6315766
-#' r$d_RM_UB
-#' #[1] 1.202919
-#' r$d_IG_LB
-#' #[1] -0.5047281
-#' r$d_IG_UB
-#' #[1] 0.96132
-#'
-#' r<-effectSizeCI(expDesign = "CrossOverRM", r=0.855,t=4.33, n1=7, n2=6)
-#' r$t_LB
-#' #[1] 2.208965
-#' r$t_UB
-#' #[1] 8.32456
-#' r$d_RM_LB
-#' #[1] 0.869002
-#' r$d_RM_UB
-#' #[1] 3.274864
-#' r$d_IG_LB
-#' #[1] 0.3309061
-#' r$d_IG_UB
-#' #[1] 1.247031
-#' r$i
-#' #[1] 48
+#' effectSizeCI(expDesign="CrossOverRM", t=14.4, n1=15, n2=15, r=0.6401)
+#' $t_LB
+#' [1] 10.64733
+#' $t_UB
+#' [1] 19.45515
+#' $d_RM_LB
+#' [1] 2.749129
+#' $d_RM_UB
+#' [1] 5.028462
+#' $d_IG_LB
+#' [1] 1.649248
+#' $d_IG_UB
+#' [1] 3.016658
+#' $g_RM_LB
+#' [1] 2.674828
+#' $g_RM_UB
+#' [1] 4.892558
+#' $g_IG_LB
+#' [1] 1.604674
+#' $g_IG_UB
+#' [1] 2.935127
+#' effectSizeCI(expDesign = "BeforeAfterRM", t=14.16536, n1=15, n2=0, r=0.6146771)
+#' $t_LB
+#' [1] 9.45389
+#' $t_UB
+#' [1] 21.53893
+#' $d_RM_LB
+#' [1] 2.440984
+#' $d_RM_UB
+#' [1] 5.561329
+#' $d_IG_LB
+#' [1] 2.142853
+#' $d_IG_UB
+#' [1] 4.882092
+#' $d_IG_UB
+#' [1] 4.882092
+#' $g_RM_LB
+#' [1] 2.307839
+#' $g_RM_UB
+#' [1] 5.257984
+#' $g_IG_LB
+#' [1] 2.02597
+#' $g_IG_UB
+#' [1] 4.615796
+#' effectSizeCI(expDesign = "IG", t=-6.344175, n1=15, n2=15)
+#' $t_LB
+#' [1] -9.329637
+#' $t_UB
+#' [1] -3.982595
+#' $d_RM_LB
+#' [1] NA
+#' $d_RM_UB
+#' [1] NA
+#' $d_IG_LB
+#' [1] -3.406702
+#' $d_IG_UB
+#' [1] -1.454238
+#' $g_RM_LB
+#' [1] "NA"
+#' $g_RM_UB
+#' [1] "NA"
+#' $g_IG_LB
+#' [1] -3.314629
+#' $g_IG_UB
+#' [1] -1.414934
 effectSizeCI <- function(expDesign, t, n1, n2, r=0, epsilon=0.0000000001, maxsteps=1000, stepsize=3)
 {
   #stepsize=3 #influences the number of steps required to obtain the final result (i.e., the result of precison defined by the epsilon), e.g., consider stepsize=2
-  assertthat::assert_that(is.numeric(t), abs(t)<=37.62) #Need to specify the 't<=37.62', see help(pt) in R Documentation
-  assertthat::assert_that(r>=0, r<=1)
-  assertthat::assert_that(is.numeric(n1), n1>1, is.numeric(n2), n2>1)
-  assertthat::assert_that(epsilon>=0.00000000001, epsilon<0.1)
-  assertthat::assert_that(maxsteps>=1, maxsteps<=1000)
-  assertthat::assert_that(stepsize>=1, stepsize<=5)
+  if(t>37.62)
+    t <- 37.62
   switch(expDesign,
          CrossOverRM={
            df <- n1+n2-2
@@ -878,76 +871,72 @@ effectSizeCI <- function(expDesign, t, n1, n2, r=0, epsilon=0.0000000001, maxste
   )
 
   c <- 1-3/(4*df-1)
-  vart <- (df/(df-2))*(1+t^2)-t^2/c^2
+  t.unbiased=t*c
+
+  vart <- (df/(df-2))*(1+t.unbiased^2)-t.unbiased^2/c^2
 
   i <- 1
-  t_LB <- t-2*sqrt(vart)
-  pt_LB <- stats::pt(t_LB, df=df, ncp=t)
-  t_UB <- t+2*sqrt(vart)
-  pt_UB <- stats::pt(t_UB, df=df, ncp=t)
+  t_LB <- t.unbiased-2*sqrt(vart)
+  pt_LB <- pt(t_LB, df=df, ncp=t.unbiased)
+  t_UB <- t.unbiased+2*sqrt(vart)
+  pt_UB <- pt(t_UB, df=df, ncp=t.unbiased)
   while( i <= maxsteps & ( abs(pt_LB) >= abs(0.025+epsilon) |  abs(pt_LB) <= abs(0.025-epsilon) | abs(pt_UB) >= abs(0.975+epsilon) | abs(pt_UB) <= abs(0.975-epsilon) ) )
   {
-    #if(i==1)
-    #{
-    #t_LB <- (t+t_LB)/2
-    #t_UB <- (t+t_UB)/2
-    #}
-    #else
-    #{
-    if(abs(pt_LB) <= abs(0.025-epsilon))       {
-      if(t_LB>0) # we need larger value of t_LB
-      {
-        t_LB <- (1+(stepsize*abs(pt_LB-0.025))) * t_LB
+    if(i==1)
+    {
+      # I'm not sure what this condition does.
+      t_LB <- (t.unbiased+t_LB)/2
+      t_UB <- (t.unbiased+t_UB)/2
+    }
+    else
+    {
+      if(abs(pt_LB) <= abs(0.025-epsilon))       {
+        if(t_LB>0) # we need larger value of t_LB
+        {t_LB <- (1+(stepsize*abs(pt_LB-0.025))) * t_LB}
+        else  # we need smaller value of t_LB
+        {
+          t_LB <- (1-(stepsize*abs(pt_LB-0.025))) * t_LB
+        }
+
+
       }
-      else  # we need smaller value of t_LB
+      if(abs(pt_LB) >= abs(0.025+epsilon))
       {
-        t_LB <- (1-(stepsize*abs(pt_LB-0.025))) * t_LB
+        if(t_LB>0) # we need smaller value of t_LB
+
+        {t_LB <- (1-(stepsize*abs(pt_LB-0.025))) * t_LB}
+        else # we need a larger value of T_LB
+        {
+          t_LB <- (1+(stepsize*abs(pt_LB-0.025))) * t_LB
+        }
+
+      }
+
+      if(abs(pt_UB) <= abs(0.975-epsilon))
+      {
+        if(t_UB>0) # we need larger value of t_UB
+
+        {t_UB <- (1+(stepsize*abs(pt_UB-0.975))) * t_UB}
+        else # we need a smaller value of t_UB
+        {
+          t_UB <- (1-(stepsize*abs(pt_UB-0.975))) * t_UB
+        }
+      }
+      if(abs(pt_UB) >= abs(0.975+epsilon))  # we need smaler value of t_LB
+      {
+        if(t_UB>0) # we need smaller value of t_UB
+
+        {t_UB <- (1-(stepsize*abs(pt_UB-0.975))) * t_UB}
+        else # we need a larger value of T_UB
+        {t_UB <- (1+(stepsize*abs(pt_UB-0.975))) * t_UB}
+
       }
 
     }
-    if(abs(pt_LB) >= abs(0.025+epsilon))
-    {
-      if(t_LB>0) # we need smaller value of t_LB
-      {
-        t_LB <- (1-(stepsize*abs(pt_LB-0.025))) * t_LB
-      }
-      else # we need a larger value of T_LB
-      {
-        t_LB <- (1+(stepsize*abs(pt_LB-0.025))) * t_LB
-      }
-
-    }
-
-    if(abs(pt_UB) <= abs(0.975-epsilon))
-    {
-      if(t_UB>0) # we need larger value of t_UB
-      {
-        t_UB <- (1+(stepsize*abs(pt_UB-0.975))) * t_UB
-      }
-      else # we need a smaller value of t_UB
-      {
-        t_UB <- (1-(stepsize*abs(pt_UB-0.975))) * t_UB
-      }
-    }
-    if(abs(pt_UB) >= abs(0.975+epsilon))  # we need smaler value of t_LB
-    {
-      if(t_UB>0) # we need smaller value of t_UB
-      {
-        t_UB <- (1-(stepsize*abs(pt_UB-0.975))) * t_UB
-      }
-      else # we need a larger value of T_UB
-      {
-        t_UB <- (1+(stepsize*abs(pt_UB-0.975))) * t_UB
-      }
-    }
-    #}
-    pt_LB <- stats::pt(t_LB, df=df, ncp=t)
-    pt_UB <- stats::pt(t_UB, df=df, ncp=t)
+    pt_LB <- pt(t_LB, df=df, ncp=t.unbiased)
+    pt_UB <- pt(t_UB, df=df, ncp=t.unbiased)
     i <- i + 1
   }
-
-  assertthat::assert_that(abs(stats::pt(t_LB, df=df, ncp=t)-0.025)<=epsilon)
-  assertthat::assert_that((abs(stats::pt(t_UB, df=df, ncp=t)-0.975)<=epsilon))
 
   switch(expDesign,
          CrossOverRM={
@@ -955,23 +944,37 @@ effectSizeCI <- function(expDesign, t, n1, n2, r=0, epsilon=0.0000000001, maxste
            d_RM_UB <- t_UB*sqrt((n1+n2)/(2*n1*n2))
            d_IG_LB <- d_RM_LB*sqrt(1-r)
            d_IG_UB <- d_RM_UB*sqrt(1-r)
+           g_RM_LB <- c*t_LB*sqrt((n1+n2)/(2*n1*n2))
+           g_RM_UB <- c*t_UB*sqrt((n1+n2)/(2*n1*n2))
+           g_IG_LB <- g_RM_LB*sqrt(1-r)
+           g_IG_UB <- g_RM_UB*sqrt(1-r)
+
          },
          IG={
            d_IG_LB <- t_LB*sqrt((n1+n2)/(n1*n2))
            d_IG_UB <- t_UB*sqrt((n1+n2)/(n1*n2))
+           g_IG_LB <- c*t_LB*sqrt((n1+n2)/(n1*n2))
+           g_IG_UB <- c*t_UB*sqrt((n1+n2)/(n1*n2))
            d_RM_LB <- "NA" #d_IG_LB/sqrt(2*(1-r)) Not really applicable
            d_RM_UB <- "NA" #d_IG_UB/sqrt(2*(1-r)) Not really applicable
+           g_RM_LB <- "NA" #d_IG_LB/sqrt(2*(1-r)) Not really applicable
+           g_RM_UB <- "NA" #d_IG_UB/sqrt(2*(1-r)) Not really applicable
          },
          BeforeAfterRM={
            d_RM_LB <- t_LB/sqrt(n1)
            d_RM_UB <- t_UB/sqrt(n1)
            d_IG_LB <- d_RM_LB*sqrt(2*(1-r))
            d_IG_UB <- d_RM_UB*sqrt(2*(1-r))
+           g_RM_LB <- c*t_LB/sqrt(n1)
+           g_RM_UB <- c*t_UB/sqrt(n1)
+           g_IG_LB <- g_RM_LB*sqrt(2*(1-r))
+           g_IG_UB <- g_RM_UB*sqrt(2*(1-r))
          },
          stop("Need to specify the expDesign parameter\n.")
   )
 
-  result <- list(t_LB=t_LB, t_UB=t_UB, d_RM_LB=d_RM_LB, d_RM_UB=d_RM_UB, d_IG_LB=d_IG_LB, d_IG_UB=d_IG_UB, i=i)
-  return(result) #t=14.4, n1=15, n2=15, r=0.6401, t_LB=10.967807, d_RM_LB=2.831876, t_UB=19.98904, d_RM_UB=5.161148, d_IG_LB=1.698889, d_IG_UB=3.096259
+  result <- list(t_LB=t_LB, t_UB=t_UB, d_RM_LB=d_RM_LB, d_RM_UB=d_RM_UB, d_IG_LB=d_IG_LB, d_IG_UB=d_IG_UB,
+                 g_RM_LB=g_RM_LB, g_RM_UB=g_RM_UB, g_IG_LB=g_IG_LB, g_IG_UB=g_IG_UB, i=i)
+  return(result) #t=14.4, n1=15, n2=15, r=0.6401, t_LB=10.64733, t_UB=19.47515,d_RM_LB=2.749129,  d_RM_UB=5.028462, d_IG_LB=1.649248, d_IG_UB=3.016658, g_RM_LB=2.674828, g_RM_UB= 4.892558, g_IG_LB= 1.604674, g_IG_UB=2.935127,i=18
 }
 
