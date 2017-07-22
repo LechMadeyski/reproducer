@@ -785,70 +785,10 @@ proportionOfSignificantTValuesUsingIncorrectAnalysis <- function(data)
 #' @return A list of Confidence Intervals for: t-statistic (t_LB and t_UB), repeted-measures effect size d_RM (d_RM_LB, d_RM_UB), independent groups effect size (d_IG_LB, d_IG_UB)
 #' @examples
 #' effectSizeCI(expDesign="CrossOverRM", t=14.4, n1=15, n2=15, r=0.6401)
-#' $t_LB
-#' [1] 10.64733
-#' $t_UB
-#' [1] 19.45515
-#' $d_RM_LB
-#' [1] 2.749129
-#' $d_RM_UB
-#' [1] 5.028462
-#' $d_IG_LB
-#' [1] 1.649248
-#' $d_IG_UB
-#' [1] 3.016658
-#' $g_RM_LB
-#' [1] 2.674828
-#' $g_RM_UB
-#' [1] 4.892558
-#' $g_IG_LB
-#' [1] 1.604674
-#' $g_IG_UB
-#' [1] 2.935127
 #' effectSizeCI(expDesign = "BeforeAfterRM", t=14.16536, n1=15, n2=0, r=0.6146771)
-#' $t_LB
-#' [1] 9.45389
-#' $t_UB
-#' [1] 21.53893
-#' $d_RM_LB
-#' [1] 2.440984
-#' $d_RM_UB
-#' [1] 5.561329
-#' $d_IG_LB
-#' [1] 2.142853
-#' $d_IG_UB
-#' [1] 4.882092
-#' $d_IG_UB
-#' [1] 4.882092
-#' $g_RM_LB
-#' [1] 2.307839
-#' $g_RM_UB
-#' [1] 5.257984
-#' $g_IG_LB
-#' [1] 2.02597
-#' $g_IG_UB
-#' [1] 4.615796
 #' effectSizeCI(expDesign = "IG", t=-6.344175, n1=15, n2=15)
-#' $t_LB
-#' [1] -9.329637
-#' $t_UB
-#' [1] -3.982595
-#' $d_RM_LB
-#' [1] NA
-#' $d_RM_UB
-#' [1] NA
-#' $d_IG_LB
-#' [1] -3.406702
-#' $d_IG_UB
-#' [1] -1.454238
-#' $g_RM_LB
-#' [1] "NA"
-#' $g_RM_UB
-#' [1] "NA"
-#' $g_IG_LB
-#' [1] -3.314629
-#' $g_IG_UB
-#' [1] -1.414934
+#' effectSizeCI(expDesign="CrossOverRM", t=0.5581, n1=6, n2=6, r=0.36135)
+#' effectSizeCI(expDesign = "CrossOverRM", r=0.855,t=4.33, n1=7, n2=6)
 effectSizeCI <- function(expDesign, t, n1, n2, r=0, epsilon=0.0000000001, maxsteps=1000, stepsize=3)
 {
   #stepsize=3 #influences the number of steps required to obtain the final result (i.e., the result of precison defined by the epsilon), e.g., consider stepsize=2
@@ -877,9 +817,9 @@ effectSizeCI <- function(expDesign, t, n1, n2, r=0, epsilon=0.0000000001, maxste
 
   i <- 1
   t_LB <- t.unbiased-2*sqrt(vart)
-  pt_LB <- pt(t_LB, df=df, ncp=t.unbiased)
+  pt_LB <- stats::pt(t_LB, df=df, ncp=t.unbiased)
   t_UB <- t.unbiased+2*sqrt(vart)
-  pt_UB <- pt(t_UB, df=df, ncp=t.unbiased)
+  pt_UB <- stats::pt(t_UB, df=df, ncp=t.unbiased)
   while( i <= maxsteps & ( abs(pt_LB) >= abs(0.025+epsilon) |  abs(pt_LB) <= abs(0.025-epsilon) | abs(pt_UB) >= abs(0.975+epsilon) | abs(pt_UB) <= abs(0.975-epsilon) ) )
   {
     if(i==1)
@@ -933,8 +873,8 @@ effectSizeCI <- function(expDesign, t, n1, n2, r=0, epsilon=0.0000000001, maxste
       }
 
     }
-    pt_LB <- pt(t_LB, df=df, ncp=t.unbiased)
-    pt_UB <- pt(t_UB, df=df, ncp=t.unbiased)
+    pt_LB <- stats::pt(t_LB, df=df, ncp=t.unbiased)
+    pt_UB <- stats::pt(t_UB, df=df, ncp=t.unbiased)
     i <- i + 1
   }
 
