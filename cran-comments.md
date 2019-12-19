@@ -6,4 +6,4 @@
 * Fedora Linux, R-devel, clang, gfortran via check_rhub() on R-hub
 
 ## R CMD check results
-There were no ERRORs, WARNINGs or NOTEs, apart from the configuration issue on the R-hub server (Ubuntu and Fedora) - "Configuration failed because openssl was not found".
+There were no ERRORs, WARNINGs or NOTEs.
