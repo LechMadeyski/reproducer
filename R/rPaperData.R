@@ -17,7 +17,7 @@
 #' \item{ExperimentID}{<fct>| ExperimentID: This experiment is the only cross-over experiment in
 #' the family of TDD and Pair-Programming experiments conducted by Madeyski, so all values in this
 #' column are set to "P2007".}
-#' \item{ParticipantID}{<fct> | Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct> | Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct> | Experimental Sequence Group: A (TLSP-TFSP), B (TFSP-TLSP)}
 #' \item{System}{<fct> | Software system to develop: Smell (a tool for identifying bad code smells
@@ -40,7 +40,7 @@
 #' (although that can be deduced from the system used in the first time period).
 #' A crossover code is also essential for non-parametric analysis.}
 #' }
-#' @source \url{http://madeyski.e-informatyka.pl/reproducible-research/}
+#' @source \url{https://madeyski.e-informatyka.pl/reproducible-research/}
 #' @examples
 #' KitchenhamEtAl.CorrelationsAmongParticipants.Madeyski10
 #'
@@ -69,7 +69,7 @@
 #' rows and 10 variables:
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each experiment in the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A (CL-NOCL,Jedit-Atunes),
 #' B (NOCL-CL,Atunes-Jedit), C(NOCL-CL,Jedit-Atunes), D(CL-NOCL,Atunes-Jedit)}
@@ -113,7 +113,7 @@
 #' \describe{
 #' \item{ExperimentID}{<fct> | ExperimentID: A unique identifier for each experiment in the data
 #' set.}
-#' \item{ParticipantID}{<fct> | Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct> | Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{Treatment}{<fct> | Experimental Treatment: AM an Analysis Model with source code (AM) vs
 #' Source Code only (SC)}
@@ -159,7 +159,7 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the three experiments
 #' in the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B , C, D}
 #' \item{System}{<fct>|Software systems used in the experiment: File System manager (FS) for
@@ -205,7 +205,7 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the five experiments in
 #' the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A (DM-NODM,ECP-EPlat or MShop-Theatre ),
 #'  B (NODM-DM,ECP-EPlat or  MShop-Theatre ), C(DM-NODM,EPlat-ECP or Theatre-MShop),
@@ -293,11 +293,11 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the three experiments
 #' in the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B , C, D}
 #' \item{System}{<fct>|Software systems used in the experiment: AMICO, a system for management of
-#' condominiums. EasyCoin, a system for araloguing collections of coins.}
+#' condominiums. EasyCoin, a system for cataloguing collections of coins.}
 #' \item{Period}{<fct>|Time period of the cross-over experiment: 1 or 2}
 #' \item{Treatment}{<fct>|Experimental Treatment: Screen mockup available (S) vs Text only (T)}
 #' \item{Time}{<dbl>|Dependent variable: The time [min] taken to perform the software engineering
@@ -332,7 +332,7 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the three experiments
 #' in the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B , C, D}
 #' \item{System}{<fct>|Software systems used in the experiment: Music shop, a system for handling
@@ -383,7 +383,7 @@
 #'  experiment}
 #' \item{Time}{<dbl>|Dependent variable: The total time [min] to accomplish the requirement
 #' engineering task.}
-#' \item{Quality}{<dbl>|Dependent variable: The quality of the requirments engineering task. }
+#' \item{Quality}{<dbl>|Dependent variable: The quality of the requirements engineering task. }
 #' \item{CrossOverID}{<fct>|Crossover category: For a single 2 group crossover experiment, the
 #' value is set to CO1 for each experiment stage.}
 #' \item{ExperimentPeriod}{<fct>|ExperimentPeriod: The time period across both stages of the
@@ -415,7 +415,7 @@
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each part of the experiment.
 #' Exp.1 identifies data from the first part of the experiment, Exp.2 identifies data from the
 #' second part of the experiment.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for both
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for both
 #' parts of the experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B }
 #' \item{System}{<fct>|Software systems used in the experiment: For the first part of the
@@ -451,7 +451,7 @@
 #' 2010.
 #' Although we present the full data set, only the first two experiments were used in the
 #' correlation study, because many of the observations in the final two studies were unpaired.
-#' The experiments assess whether participants performancee comprehension tasks beter when using
+#' The experiments assess whether participants performance comprehension tasks better when using
 #' source code complemented by standard UML diagrams (UML) or by diagrams stereotyped using the
 #' Conallen notation (Conallen).
 #' If you use this data set please cite:
@@ -467,7 +467,7 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the four experiments in
 #' the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B , C, D}
 #' \item{System}{<fct>|Software systems used in the experiment: Two Java-based Web applications,
@@ -508,7 +508,7 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the three experiments
 #' in the data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B , C, D}
 #' \item{System}{<fct>|Software systems used in the experiment: PO, a system to process orders for
@@ -550,10 +550,10 @@
 #' \describe{
 #' \item{ExperimentID}{<fct>|ExperimentID: A unique identifier for each of the experiments in the
 #' data set.}
-#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each particpant, unique for a
+#' \item{ParticipantID}{<fct>|Participant ID: An identifier for each participant, unique for a
 #' specific experiment.}
 #' \item{SequenceGroup}{<fct>|Experimental Sequence Group: A , B , C, D}
-#' \item{System}{<fct>|Software systems used in the experiments: The Unibas experinment used Agenda
+#' \item{System}{<fct>|Software systems used in the experiments: The Unibas experiment used Agenda
 #' (a system for tracking personal contacts) and Gas-Station (a system for managing a petrol
 #' station). The UniNa experiment used Financial (a system which is a command line option price
 #' calculator) and Hotel-Reservation. The POLINA and PROF experiments used AveCalc (a system that
@@ -561,7 +561,7 @@
 #' \item{Period}{<fct>|Time period of the cross-over experiment: 1 or 2}
 #' \item{Treatment}{<fct>|Experimental Treatment:ABBR, abbreviated names. FULL, full names}
 #' \item{Time}{<dbl>|Dependent variable: The time each participant spent performing the SE task.}
-#' \item{FMeasure}{<dbl>|Dependent variable: The effectiveness of the particpants taking into
+#' \item{FMeasure}{<dbl>|Dependent variable: The effectiveness of the participants taking into
 #' account correctness and completeness of the fault fixing tasks}
 #' \item{Efficiency}{<dbl>|Dependent variable: The ratio of effectiveness to time. }
 #' \item{CrossOverID}{<fct>|CrossOver category: For 4 group crossover designs, the crossover

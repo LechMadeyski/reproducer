@@ -194,4 +194,4 @@ and functions (for importing data, visualization and descriptive analyses):
     - `boxplotHV`
     - `boxplotAndDensityCurveOnHistogram`
 
-See the package homepage (http://madeyski.e-informatyka.pl/reproducible-research/) for documentation and examples.
+See the package homepage (https://madeyski.e-informatyka.pl/reproducible-research/) for documentation and examples.

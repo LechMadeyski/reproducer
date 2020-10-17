@@ -1,11 +1,11 @@
 #' script to obtain correlation coefficients
 
 #' @title CalculateRLevel1
-#' @description This function calculates the r value for a 2-group (2G) or 4-Group (4G) Crossover experiment for each sequence group and each outcome metric. The function returns both the exact r value and the r value based on pooled variances for each sequnce group and outcome metric
+#' @description This function calculates the r value for a 2-group (2G) or 4-Group (4G) Crossover experiment for each sequence group and each outcome metric. The function returns both the exact r value and the r value based on pooled variances for each sequence group and outcome metric
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export CalculateRLevel1
 #' @param Dataset This holds the data for each participant in a 2-group or 4-group crossover experiment in the "wide" format. I.e., there is only one entry per participant. The data set should have been generated from a long version of the data based on a variable labelled "Period" which is used to define which participant data was collected in the first period of the experiment - see function ExtractLevel1ExperimentRData.
-#' @param StudyID This holds an identifer used to identify the origin of the experimental data in the output from this function.
+#' @param StudyID This holds an identifier used to identify the origin of the experimental data in the output from this function.
 #' @param Groups This is a list that defined the sequence group identifiers used in the dataset.
 #' @param Metrics This is a list of metrics, e.g., ("Correctness","Time","Efficiency").
 #' @param ExperimentName This an identifiers used to define the specific experiment in the output from this function.
@@ -319,7 +319,7 @@ ConstructLevel1ExperimentRData = function(Data,
                                           Metrics,
                                           Type,
                                           Control) {
-  # This calls the algorithm that constructs the correlation values for each metric and each independent sequence group in an experiment. It identifies the data for each sequnce group in each experiment for each experiment and collates the reurned r-values for each sequence group
+  # This calls the algorithm that constructs the correlation values for each metric and each independent sequence group in an experiment. It identifies the data for each sequence group in each experiment for each experiment and collates the reurned r-values for each sequence group
 
 
   NumExp = length(ExperimentNames)
@@ -429,7 +429,7 @@ ExtractExperimentData = function(DataSet,
 #' @param ExperimentNames This a list of identifiers used to define each experiment in the output from this function.
 #' @param Metrics This is a list of of character strings identifying each outcome metric reported in each of the experiments in the set of replicated experiments.
 #' @param Type this is a list of character strings specifying for each experiment whether the experiment is a two sequence group "2G" or four sequence group "4G" experiment.
-#' return RExp.Table This is a table containing the pooled data variance and the pooled difference variance for the experiment and the value r for the eperiment for eachm metric
+#' return RExp.Table This is a table containing the pooled data variance and the pooled difference variance for the experiment and the value r for the experiment for eachm metric
 #' @examples
 #' ShortExperimentNames=c("E1","E2","E3","E4")
 #' FullExperimentNames=c("EUBAS","R1UCLM","R2UCLM","R3UCLM")
@@ -446,7 +446,6 @@ ExtractExperimentData = function(DataSet,
 #'   Metrics, Type, Control)
 #' CalculateLevel2ExperimentRData(Lev1Data,Groups=Groups,StudyID=StudyID,
 #'   ExperimentNames=ShortExperimentNames,Metrics=Metrics,Type=Type)
-
 #' # A tibble: 8 x 10
 #' #  StudyID ExpID     N Metric        PooledVar1 PooledVar2 VarProp PooledVar PooledDiffVar    r.Exp
 #' #  <chr>   <chr> <int> <chr>              <dbl>      <dbl>   <dbl>     <dbl>         <dbl>    <dbl>
@@ -570,7 +569,8 @@ CalculateLevel2ExperimentRData = function(Level1Data,
 #' @param lmeRA The output from the lmer function
 #' @param N The total number of observations
 #' @param alpha the probability level to be used when constructing the confidence interval bounds.
-#' @return REA.Summary A dataframe holding the number of observations N, the overall mean value as its standard errorreported as by the lmer function, and its confidence interval bounds.
+#' @return REA.Summary A dataframe holding the number of observations N, the overall mean value as
+#' its standard error reported as by the lmer function, and its confidence interval bounds.
 #' @examples
 #' ShortExperimentNames=c("E1","E2","E3","E4")
 #' FullExperimentNames=c("EUBAS","R1UCLM","R2UCLM","R3UCLM")
@@ -639,7 +639,7 @@ ExtractSummaryStatisticsRandomizedExp = function(lmeRA, N, alpha = 0.05) {
 }
 ########################################################################################################################
 #' @title calculateBasicStatistics
-#' @description This function calculates the following statistcs for a set of data: length, mean, median, variance, standard error of the mean, and confidence interval bounds. The input data imust be a vector of 2 or more numerical values.
+#' @description This function calculates the following statistcs for a set of data: length, mean, median, variance, standard error of the mean, and confidence interval bounds. The input data must be a vector of 2 or more numerical values.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export calculateBasicStatistics
 #' @param x The data to be summarized
@@ -752,10 +752,11 @@ calculateGroupSummaryStatistics = function(x, Group) {
 ############################################################################################################################
 
 #' @title rSimulations
-#' @description This function simulates many datasest from the same bivariate distibution to investigate the distribution of corrleations for specific sample sizes.
+#' @description This function simulates many datasest from the same bivariate distribution to
+#' investigate the distribution of correlations for specific sample sizes.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export rSimulations
-#' @param mean The mean used for one of bivariate distruibutions - assumed to be the control condition in an experiment.
+#' @param mean The mean used for one of bivariate distributions - assumed to be the control condition in an experiment.
 #' @param var The variance used for both treatment groups. It must be a real value greater than 0.
 #' @param diff This value is added to the parameter mean to specify the mean for the other bivariate distribution - assumed to be the treatment condition in an experiment.
 #' @param r This specifies the correlation coefficient to be used for the bivariate normal distribution it must be a value in the range [-1,1].
@@ -763,10 +764,10 @@ calculateGroupSummaryStatistics = function(x, Group) {
 #' @param VarAdj This value will be added to the variance of the treatment condition.
 #' @param reps The number of bivariate data sets that will be simulated.
 #' @param seed This specifies the seed value for the simulations and allows the experiment to be repeated.
-#' @param returntSignificant If set to true the percentage of times the t-test delivered a value signiicant at the 0.05 level is reported (default returntSignificant=F).
+#' @param returntSignificant If set to true the percentage of times the t-test delivered a value significant at the 0.05 level is reported (default returntSignificant=F).
 #' @param returndata If set to FALSE, the function returns the summary information across all the replications  (default returndata=F). If set to TRUE the function outputs the r and variance ratio, and variance accuracy values generated in each replication.
 #' @param plothist If set to T, the function outputs a histogram of the r-values, the varprop values and the accuracy values (default plothist=F).
-#' @return output If returndata=F, the output returns summary information about the average of r and the variance properties across the replicated data sets.If returndata=T, the function returns the r-values obtained for each of the simulated data sets to gether with the varaiance ratio, the variance accuracy measure and a dummy variable indicating whether a test of significance between the mean values was significant (which is indicated by the dummy variable being set to 1) or not (which is indicated by the dummy variable being set to 0)
+#' @return output If returndata=F, the output returns summary information about the average of r and the variance properties across the replicated data sets. If returndata=T, the function returns the r-values obtained for each of the simulated data sets to gather with the variance ratio, the variance accuracy measure and a dummy variable indicating whether a test of significance between the mean values was significant (which is indicated by the dummy variable being set to 1) or not (which is indicated by the dummy variable being set to 0)
 #' @examples
 #' output=rSimulations(mean=0,var=1,diff=0,r=0.25,N=4,reps=10000)
 #' output=signif(output,4)
