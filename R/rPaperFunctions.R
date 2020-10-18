@@ -769,12 +769,16 @@ calculateGroupSummaryStatistics = function(x, Group) {
 #' @param plothist If set to T, the function outputs a histogram of the r-values, the varprop values and the accuracy values (default plothist=F).
 #' @return output If returndata=F, the output returns summary information about the average of r and the variance properties across the replicated data sets. If returndata=T, the function returns the r-values obtained for each of the simulated data sets to gather with the variance ratio, the variance accuracy measure and a dummy variable indicating whether a test of significance between the mean values was significant (which is indicated by the dummy variable being set to 1) or not (which is indicated by the dummy variable being set to 0)
 #' @examples
-#' output=rSimulations(mean=0,var=1,diff=0,r=0.25,N=4,reps=10000)
+#' # output=rSimulations(mean=0,var=1,diff=0,r=0.25,N=4,reps=10000)
+#' # reduced reps to pass CRAN time limits
+#' output=rSimulations(mean=0,var=1,diff=0,r=0.25,N=4,reps=1000)
 #' output=signif(output,4)
 #' output
 #' #  r.Mean r.Median  Var.r PercentNegative Mean.VarProp Variance.VarProp ...
 #' # 1 0.2132   0.3128 0.3126           34.21       0.5036          0.06046 ...
-#' output=rSimulations(mean=0,var=1,diff=0.8,r=0.25,N=60,reps=10000,returntSignificant=TRUE)
+#' #output=rSimulations(mean=0,var=1,diff=0.8,r=0.25,N=60,reps=10000,returntSignificant=TRUE)
+#' # reduced reps to pass CRAN time limits
+#' output=rSimulations(mean=0,var=1,diff=0.8,r=0.25,N=60,reps=1000,returntSignificant=TRUE)
 #' output=signif(output,4)
 #' output
 #' #   r.Mean r.Median   Var.r PercentNegative Mean.VarProp Variance.VarProp ...
