@@ -1,7 +1,7 @@
 Package: reproducer
 Title: Reproduce Statistical Analyses and Meta-Analyses
-Version: 0.4.0
-Date: 2020-10-18
+Version: 0.4.1
+Date: 2021-02-14
 Encoding: UTF-8
 Authors@R: c(
     person("Lech", "Madeyski", email = "lech.madeyski@gmail.com", role = c("cre", "aut", "ctb"), comment = "The main contributor and maintainer"),
@@ -20,7 +20,7 @@ Maintainer: Lech Madeyski <lech.madeyski@gmail.com>
 Description: Includes data analysis functions (e.g., to calculate effect sizes and 95% Confidence Intervals (CI) on Standardised Effect Sizes (d) for AB/BA cross-over repeated-measures experimental designs), data presentation functions (e.g., density curve overlaid on histogram), and the data sets analyzed in different research papers in software engineering (e.g., related to software defect prediction or multi-site experiment concerning the extent to which structured abstracts were clearer and more complete than conventional abstracts) to streamline reproducible research in software engineering.  
 Depends:
     R (>= 3.5.0)
-License: file LICENSE
+License: GPL (>= 2)
 LazyData: true
 URL: https://madeyski.e-informatyka.pl/reproducible-research/
 Imports:
