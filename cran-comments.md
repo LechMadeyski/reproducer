@@ -5,4 +5,4 @@
 * Fedora Linux, R-devel, clang, gfortran via check_rhub() on R-hub
 
 ## R CMD check results
-There were no ERRORs or WARNINGs.
+There were no ERRORs or WARNINGs. 
