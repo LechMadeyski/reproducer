@@ -6,3 +6,4 @@
 ^cran-comments\.md$
 ^data-raw$
 ^github*\.xlsx$
+^CRAN-SUBMISSION$
