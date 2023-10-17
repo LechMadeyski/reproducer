@@ -1,7 +1,7 @@
 Package: reproducer
 Title: Reproduce Statistical Analyses and Meta-Analyses
-Version: 0.5.2
-Date: 2023-07-08
+Version: 0.5.3
+Date: 2023-10-17
 Authors@R: c(
     person("Lech", "Madeyski", , "lech.madeyski@gmail.com", role = c("cre", "aut", "ctb"),
            comment = "The main contributor and maintainer"),

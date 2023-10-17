@@ -1,3 +1,12 @@
+# CHANGES IN reproducer VERSION 0.5.3
+
+## UPDATED FEATURES
+- Updated functions `calculateLargeSampleRandomizedDesignEffectSizes`, `NP2GMetaAnalysisSimulation`, `NP4GMetaAnalysisSimulation` (fixed errors)
+- Exported functions `calculatePhat`, `calculateCliffd`
+
+## REMOVED FEATURES
+- Depreciated functions `calculate2GMdMRE`, `calculate4GMdMRE`
+
 # CHANGES IN reproducer VERSION 0.5.2
 
 ## UPDATED FEATURES
