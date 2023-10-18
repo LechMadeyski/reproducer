@@ -3,6 +3,7 @@
 ## UPDATED FEATURES
 - Updated functions `calculateLargeSampleRandomizedDesignEffectSizes`, `NP2GMetaAnalysisSimulation`, `NP4GMetaAnalysisSimulation` (fixed errors)
 - Exported functions `calculatePhat`, `calculateCliffd`
+- Corrected several typos in the documentation of the package
 
 ## REMOVED FEATURES
 - Depreciated functions `calculate2GMdMRE`, `calculate4GMdMRE`

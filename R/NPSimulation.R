@@ -86,7 +86,7 @@ testfunctionParameterChecks <-
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @param effectsize The effect size
 #' @param effectsize.variance The effect size variance
-#' @param effectsize.df The degrees of freedome for confidence intervals based on the t- distribution. If df=0 (default), the confidence interval is based on the normal distribution
+#' @param effectsize.df The degrees of freedom for confidence intervals based on the t- distribution. If df=0 (default), the confidence interval is based on the normal distribution
 #' @param alpha The significance level of the confidence interval
 #' (default 0.05).
 #' @param alternative This defines whether a one-sided test or a two-sided
@@ -908,7 +908,7 @@ LaplaceDist <- function(N,
 #' @param sd The standard deviation (or shape for gamma data) of the baseline distribution
 #' @param diff The adjustment to the baseline mean for the alternative distribution.
 #' @param GroupSize An integer defining the number of data items in each group.
-#' @param type A string dentifying the distribution used to simulate the data: 'n' for normal, 'ln' for log-normal, 'g' for gamma, 'lap' for Laplace.
+#' @param type A string identifying the distribution used to simulate the data: 'n' for normal, 'ln' for log-normal, 'g' for gamma, 'lap' for Laplace.
 #' @param ExpAdj An additional adjustment factor that is added to both the mean value. Defaults to zero.
 #' @param StdAdj An additional adjustment factor that is added to both group variance (or rate for gamma data). Defaults to zero.
 #' @param BlockEffect An additional factor that is added to the mean of the both groups (shape for the gamma distribution). Defaults to zero.
@@ -1017,9 +1017,9 @@ simulate2GExperimentData <-
 #' @param diff a value added to meanC to generate the treatment group data (default 0).
 #' @param N the size of each group (default 5000000)
 #' @param type the distribution of the data to be generated (default "n").
-#' @param StdAdj a value that can be added to sdC to introduce heterogeneity into the tretament group (default 0).
-#' @param reporttrans If set to "Yes" AND type="l" the algorithm returns the values obtained by anaysing applying the logarithmic transformation to the simulated data (default "No").
-#' @return A tibble identifying the sample satistics and the values of the probability of superiority, Cliff's d and StdMD (labelled StdES)
+#' @param StdAdj a value that can be added to sdC to introduce heterogeneity into the treatment group (default 0).
+#' @param reporttrans If set to "Yes" AND type="l" the algorithm returns the values obtained by analysing applying the logarithmic transformation to the simulated data (default "No").
+#' @return A tibble identifying the sample statistics and the values of the probability of superiority, Cliff's d and StdMD (labelled StdES)
 #' @examples
 #'set.seed=400
 #'calculateLargeSampleRandomizedDesignEffectSizes(meanC=0, sdC=1, diff=.5,
@@ -1770,7 +1770,7 @@ RandomExperimentSimulations <-
 #' @param sd The standard deviation (or shape for gamma data) of the baseline distribution
 #' @param diff The adjustment to the baseline mean for the alternative distribution.
 #' @param GroupSize An integer defining the number of data items in each group.
-#' @param type A string dentifying the distrubtion used to simulate the data: 'n' for normal, 'l' for log-normal, 'g' for gamma, 'lap' for Laplace.
+#' @param type A string identifying the distrubtion used to simulate the data: 'n' for normal, 'l' for log-normal, 'g' for gamma, 'lap' for Laplace.
 #' @param ExpAdj An additional adjument factor that is added to both the mean values. Defaults to zero.
 #' @param StdAdj An aditional adjustment factor that is added to the second group variance (or rate for gamma data). Defaults to zero.
 #' @param BlockEffect An additional factor that is added to the mean of the second group groups (shape for the gamma distribution). Defaults to zero.
@@ -1884,7 +1884,7 @@ simulate4GExperimentData <-
 
 
 #' @title calculateLargeSampleRandomizedBlockDesignEffectSizes
-#' @description The function uses a simulates a large experiment  to estimate the asymptotic values of the probability of superiority, Cliff's d and the standardized mean difference data for a four group randomized blocks experiment for four different distributions: Normal (i.e. type='n'), log-normal (i.e. type='l'), gama (i.e. tyep='g') and Laplace (i.e., type='lap').
+#' @description The function uses a simulates a large experiment  to estimate the asymptotic values of the probability of superiority, Cliff's d and the standardized mean difference data for a four group randomized blocks experiment for four different distributions: Normal (i.e. type='n'), log-normal (i.e. type='l'), gama (i.e. type='g') and Laplace (i.e., type='lap').
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export calculateLargeSampleRandomizedBlockDesignEffectSizes
 #' @param meanC to act as the mean of the distribution (default 0) used to
@@ -1900,7 +1900,7 @@ simulate4GExperimentData <-
 #' @param Blockmean, a value that can be added one of the blocks to represent
 #' a fixed block effect (default 0).
 #' @param StdAdj a value that can be added to sdC to introduce heterogeneity
-#' into the tretament group (default 0).
+#' into the treatment group (default 0).
 #' @return A tibble identifying the sample statistics and the values of the
 #' probability of superiority, Cliff's d and StdMD (labelled StdES)
 #' @examples
@@ -1983,7 +1983,7 @@ calculateLargeSampleRandomizedBlockDesignEffectSizes <-
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export Calc4GroupNPStats
 #' @param x1 is the data associated with  treatment A in one block 1
-#' @param x2 is the data associated with treatement B in block 1
+#' @param x2 is the data associated with treatment B in block 1
 #' @param x3 is the data associated with treatment A in block 2
 #' @param x4  is the data associated with treatment B in block 2
 #' @param sigfig is the number of significant digits in the data. If >0
@@ -2868,7 +2868,7 @@ RandomizedBlocksExperimentSimulations <-
 #' @export calculateNullESAccuracy
 #' @param mean The mean of the baseline distribution.
 #' @param sd The standard deviation or shape of the baseline distribution
-#' @param N The number of obervations per group for two group experiments and N/2 the sample sizes for four group experiments. N must be even to ensure equal N/2 defines appropriate sample sizes per group for 4 group experiments
+#' @param N The number of observations per group for two group experiments and N/2 the sample sizes for four group experiments. N must be even to ensure equal N/2 defines appropriate sample sizes per group for 4 group experiments
 #' @param reps The number of replications (i.e. two-group and four group experiments) to be simulated
 #' @param type A string parameter defining the distribution being simulated i.e. 'n' for normal data, 'l' for log-normal data, 'g' for gamma data and 'lap' for LaPlace data.
 #' @param seed A starting value for the simulations
@@ -3160,7 +3160,7 @@ ExtractMAStatistics <-
   }
 
 #' @title NP2GMetaAnalysisSimulation
-#' @description This function simulates data from a family of experiments. The parameter Exp deteremines the number of experiments in the family. The function simulates data from one of four distributions and uses the data to construct two of groups of equal size (GroupSize). The distribution for one  of the groups corresponds to the control and is based on the given mean and spread, the distribution for the other group corresponds to the treatment group and  is based on the mean+diff and the spread plus any variance adjustment requested (determined by the parametrt StdAdj). The data from each experiment is analysed separately to estimate three non-parametric effect sizes: the Cliff's d and the probability of superiority referred to as phat and their variances. Parametric effect sizes Cohen's d (also known as the standarized means difference, SMD) and the small sample size adjusted standardized mean difference g are also calculated together with their variances. The effect sizes are then meta-analysed using various methods: the simple average of the effect size and the variance weighted averages (using the exact and approximate normal variance and the weighted and unweighted standardized mean difference). The function uses the metafor package for formal meta-analysis, and the specific method of formal meta-analysis used is determined by the MAMethod. All tests of signficance are done at the 0.05 level. If the parameter returnES is TRUE, the function returns the effect sizes for each experiment in the family, otherwise it returns the meta-analysis results.
+#' @description This function simulates data from a family of experiments. The parameter Exp determines the number of experiments in the family. The function simulates data from one of four distributions and uses the data to construct two of groups of equal size (GroupSize). The distribution for one  of the groups corresponds to the control and is based on the given mean and spread, the distribution for the other group corresponds to the treatment group and  is based on the mean+diff and the spread plus any variance adjustment requested (determined by the parameter StdAdj). The data from each experiment is analysed separately to estimate three non-parametric effect sizes: the Cliff's d and the probability of superiority referred to as phat and their variances. Parametric effect sizes Cohen's d (also known as the standarized means difference, SMD) and the small sample size adjusted standardized mean difference g are also calculated together with their variances. The effect sizes are then meta-analysed using various methods: the simple average of the effect size and the variance weighted averages (using the exact and approximate normal variance and the weighted and unweighted standardized mean difference). The function uses the metafor package for formal meta-analysis, and the specific method of formal meta-analysis used is determined by the MAMethod. All tests of significance are done at the 0.05 level. If the parameter returnES is TRUE, the function returns the effect sizes for each experiment in the family, otherwise it returns the meta-analysis results.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export NP2GMetaAnalysisSimulation
 #' @param mean the value used for the mean of control group in the simulated data. It can be any real number including zero.
@@ -3168,15 +3168,15 @@ ExtractMAStatistics <-
 #' @param diff mean+diff is the value used for the mean of the treatment group. It can be zero.
 #' @param GroupSize is the size of each of the 2 groups comprising one experiment. Groupsize should be an integer of 4 or more
 #' @param Exp is the number of experiments being simulated. Exp should be an integer of 2 or more. It defaults to 5.
-#' @param type specifies the distribution being simulated. The permited values are "n" for the normal distribution,  "l" for the lognormal distribution, "g" for the gamma distribution and "lap" for the Laplace distribution. The parameter defaults to "n".
+#' @param type specifies the distribution being simulated. The permitted values are "n" for the normal distribution,  "l" for the lognormal distribution, "g" for the gamma distribution and "lap" for the Laplace distribution. The parameter defaults to "n".
 #' @param StdAdj specifies a level used to adjust the treatment variance. It allows heterogeneity to be modelled. It defaults to zero meaning no variance heterogeneity is introduced.
 #' @param seed specifies the seed to be used to initiate the simulation, so the simulation is repeatable. It defauls to 123.
 #' @param StdExp defines whether any additional heterogeneity is introduced between families. The value (set to 0 or 0.5 for our simulations) is used when we generate a deviation to be added to the control mean (control rate for gamma data) for each family. The deviation is generated from a Normal distribution with mean 0 and standard deviation=0.5. If StdExp=0 we do not add any deviations to the mean.
 #' @param alpha the Type 1 error rate level use for statistical tests.
 #' @param MAMethod the meta-analysis method needed for the call to the metafor package rma algorithm
-#' @param returnES Determines the format of the output. It defaults to FALSE which causes the function to output the meta-anaysis results for the family of experiments. If set to TRUE it returns the effect sizes for each experiment.
+#' @param returnES Determines the format of the output. It defaults to FALSE which causes the function to output the meta-analysis results for the family of experiments. If set to TRUE it returns the effect sizes for each experiment.
 #' @param AlwaysTwoSidedTests If FALSE the function performs one-sided tests if diff!=0, and two-sided tests if diff=0. If set to TRUE the function alsways does two-sided tests.
-#' @return Depending on the value of the returnES parameter, the function either returns the effect sizes for each experiment or the aggregated resutls for the family
+#' @return Depending on the value of the returnES parameter, the function either returns the effect sizes for each experiment or the aggregated results for the family
 #' @examples
 #' as.data.frame(NP2GMetaAnalysisSimulation(mean=0,sd=1,diff=0.5,GroupSize=10,
 #'   Exp=5,type="n",StdAdj=0,alpha=0.05,seed=457,StdExp=1,MAMethod="PM",
@@ -5080,7 +5080,7 @@ calculatePopulationStatistics <- function(mean, std, type = "n") {
 #' @param m2 The theoretical mean for the treatment group
 #' @param std2 The theoretical variance for the treatment group
 #' @param type String identifying the distribution, 'n' for normal, 'ln' for lognormal, 'lap' for Laplace, 'g' for Gamma
-#' @return dataframe containing the expected values of the unstandardized mean difference effect size, the pooled witjin group variance, the standardized mean difference effect size and the point bi-serial correlation.
+#' @return dataframe containing the expected values of the unstandardized mean difference effect size, the pooled within group variance, the standardized mean difference effect size and the point bi-serial correlation.
 #' @examples
 #' RandomizedDesignEffectSizes(m1=0, std1=1, m2=1, std2=3, type = 'n')
 #' #  ES Var     StdES      rPBS
@@ -5285,7 +5285,7 @@ doLM <- function(DataSet, Metric, Type) {
 #
 
 #' @title calculateMAType1Error
-#' @description The function simulates multiple five group families of either two-group or four-group experiments and estimates the Type1 Error rate obtained after synthesizing  the analysis results obtained from the experiments in each family. The Type1 Error is estimated as the pecentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different sample sizes depending on the parameter N. The output is a table of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates for each set of simulated families. The synthesis method for all three effect sizes is based on calculating the overall mean and variance for the family of experiments, and then using those values to calculate the effect size variance and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+#' @description The function simulates multiple five group families of either two-group or four-group experiments and estimates the Type1 Error rate obtained after synthesizing  the analysis results obtained from the experiments in each family. The Type1 Error is estimated as the percentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different sample sizes depending on the parameter N. The output is a table of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates for each set of simulated families. The synthesis method for all three effect sizes is based on calculating the overall mean and variance for the family of experiments, and then using those values to calculate the effect size variance and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export calculateMAType1Error
 #' @param mean This is the mean value of the control and treatment group(s) used in the simulations of each experiment of each family for simulations of a specified sample size (default 0).
@@ -5299,7 +5299,7 @@ doLM <- function(DataSet, Metric, Type) {
 #' @param StdAdj Used to introduce variance heterogeneity for Laplace and Normal samples (default 0).
 #' @param Blockmean Used to set a fixed block effect for four-group experiments (default 0).
 #' @param BlockStdAdj Not used (default 0).
-#' @param StdExp Used to introduce hetrogeneity among families of experiments (default 0).
+#' @param StdExp Used to introduce heterogeneity among families of experiments (default 0).
 #' @param MAMethod Not used (default "PM").
 #' @param alpha The significance level for statistical tests (default 0.05).
 #' @return Design. Specifies the type of experiment 2G or 4G, the sample distribution (n,l,g,lap), and whether variance heterogeneity was added (het)
@@ -5422,7 +5422,7 @@ calculateMAType1Error = function(mean = 0,
 #################################################################################################################################
 
 #' @title calculateMABias
-#' @description The function simulates multiple five group families of either two-group or four-group experiments and estimates the power, individual estimate error, and the small sample bias obtained after synthesizing the analysis results obtained from the experiments in each family. The power is estimated as the pecentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different mean differences between the control mean and treatment mean depending on the parameter diff. The output is a table of values identifying the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated families. The synthesis method for all the effect sizes is based on calculating the overall mean and variance for experiments in each family and then using those values to calculate the overall effect size and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+#' @description The function simulates multiple five group families of either two-group or four-group experiments and estimates the power, individual estimate error, and the small sample bias obtained after synthesizing the analysis results obtained from the experiments in each family. The power is estimated as the percentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different mean differences between the control mean and treatment mean depending on the parameter diff. The output is a table of values identifying the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated families. The synthesis method for all the effect sizes is based on calculating the overall mean and variance for experiments in each family and then using those values to calculate the overall effect size and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export calculateMABias
 #' @param mean This is the mean value of the control and treatment group(s) used in the simulations of each experiment of each family for simulations of a specified sample size (default 0).
@@ -5438,13 +5438,13 @@ calculateMAType1Error = function(mean = 0,
 #' @param seed A seed for the simulations (default 123).
 #' @param StdAdj Used to introduce variance heterogeneity for Laplace and Normal samples (default 0).
 #' @param Blockmean Used to set a fixed block effect for four-group experiments (default 0).
-#' @param StdExp Used to introduce hetrogeneity among families of experiments (default 0).
+#' @param StdExp Used to introduce heterogeneity among families of experiments (default 0).
 #' @param MAMethod Not used (default "PM").
 #' @param alpha The significance level for statistical tests (default 0.05).
 #' @return Design. Specifies the type of experiment 2G or 4G, the sample distribution (n,l,g,lap), and whether variance heterogeneity was added (het)
 #' @return BEIncluded. Specifies whether or not a block effect was introduced. Always set to "No" for two-group experiments.
 #' @return GrpSize. Specifies the size of each group in the individual experiments.
-#' @return Diff. The size of the difference btween the control and treatment converted to an ordinal scale (Small, Medium, Large)
+#' @return Diff. The size of the difference between the control and treatment converted to an ordinal scale (Small, Medium, Large)
 #' @return NPBias The relative difference between the average of the observed values of either Cliff's d or centralised PHat and the population value
 #' @return StdMDBias. The relative difference between the average of the observed values of StdMDBias and the theoretical value
 #' @return NPMdMRE The median of the absolute relative difference between the observed values of either Cliff's d or centralised PHat and the theoretical value for each experiment.
@@ -5452,9 +5452,9 @@ calculateMAType1Error = function(mean = 0,
 #' @return ObsPHat. The average of the average Phat value found for each family in the set of simulations.
 #' @return ObsCliffd. The average of the average Cliffd value found for each family in the set of simulations.
 #' @return ObsStdES. The average of StdMD calculated for each family in the set of simulations.
-#' @return PHatPower. The percentage of the simulations, for a speific mean difference, for which the overall Phat estimate was significantly different from zero at the nominated alpha level using one-sided tests.
-#' @return CliffdPower. The percentage of the simulations, for a speific mean difference, for which the overall Cliff's d estimate was significantly different from zero at the nominated alpha level using one-sided tests.
-#' @return StdMDPower. The percentage of the simulations, for a speific mean difference, for which the overall StdMD estimate was significantly different from zero at the nominated alpha level using one-sided tests.
+#' @return PHatPower. The percentage of the simulations, for a specific mean difference, for which the overall Phat estimate was significantly different from zero at the nominated alpha level using one-sided tests.
+#' @return CliffdPower. The percentage of the simulations, for a specific mean difference, for which the overall Cliff's d estimate was significantly different from zero at the nominated alpha level using one-sided tests.
+#' @return StdMDPower. The percentage of the simulations, for a specific mean difference, for which the overall StdMD estimate was significantly different from zero at the nominated alpha level using one-sided tests.
 #' @examples
 #'# as.data.frame(calculateMABias(mean=0,sd=1,N=10,diff=c(0.2,0.5,0.8), Experiments=5,reps=10,
 #'# Expected.StdMD=c(0.2,0.5,0.8), Expected.PHat=c(0.556,0.638,0.714), type="n",FourG=FALSE,
@@ -5579,7 +5579,7 @@ calculateMABias = function(mean = 0,
 
 ######################################################################################################################################
 #' @title calculate2GType1Error
-#' @description The function simulates  multiple two-group experiments and estimates the Type1 Error rate obtained from the set of simulated experiments. The Type1 Error is estimated as the pecentage of experiments for which the mean the experiment was significantly different from zero at the 0.05 significance level using two-sided tests. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a set of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+#' @description The function simulates  multiple two-group experiments and estimates the Type1 Error rate obtained from the set of simulated experiments. The Type1 Error is estimated as the percentage of experiments for which the mean the experiment was significantly different from zero at the 0.05 significance level using two-sided tests. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a set of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export  calculate2GType1Error
@@ -5655,7 +5655,7 @@ calculate2GType1Error = function(mean = 0,
 
 ###############################################################################################################################
 #' @title calculate2GBias
-#' @description The function simulates two-group experiments and estimates the power, individual estimate error, and the small sample bias obtained obtained from the set of simulated experiments. The set of simulations for a specific mean difference are repeated for three different values of the difference between the treatment and control groups specified by the parameter "diff". The power is estimated as the pecentage of experiments for which the  mean of the experiment was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a table of values identifing the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated experiments. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+#' @description The function simulates two-group experiments and estimates the power, individual estimate error, and the small sample bias obtained obtained from the set of simulated experiments. The set of simulations for a specific mean difference are repeated for three different values of the difference between the treatment and control groups specified by the parameter "diff". The power is estimated as the percentage of experiments for which the  mean of the experiment was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a table of values identifying the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated experiments. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export calculate2GBias
 #' @param mean This is the mean value of the control and treatment group(s) used in the simulations of each experiment for simulations of a specified sample size and mean difference (default 0).
@@ -5664,13 +5664,13 @@ calculate2GType1Error = function(mean = 0,
 #' @param reps The number of experiments simulated for each mean difference.
 #' @param diff This specifies the mean difference between the control and treatment that will be used in each set of simulations. It must always have three values representing small, medium and large differences (default c(0.2, 0.5, 0.8)).
 #' @param Expected.StdMD This defines the theoretical value of the average StdMD obtained from the simulations for each mean difference. (default c(0.2, 0.5, 0.8))
-#' @param Expected.PHat This defines the expected population value of the average Phat obtained from the simulationsfor each mean difference (default c(0.556,0.638,0.714)).
+#' @param Expected.PHat This defines the expected population value of the average Phat obtained from the simulations for each mean difference (default c(0.556,0.638,0.714)).
 #' @param type This specifies the distribution of the data samples that will be simulated. Options ae "n" for Normal, "l", for Log-normal,'g" for Gamma, "lap" for LaPlace (default "n").
 #' @param seed A seed for the simulations (default 123).
 #' @param StdAdj Used to introduce variance heterogeneity for Laplace and Normal samples (default 0).
 #' @return Design. Specifies the type of experiment, the sample distribution (n,l,g,lap), and whether variance heterogeneity was added (het)
-#' @return GrpSize. Specifies the size of each group in the simulatedl experiments.
-#' @return Diff. The size of the difference btween the control and treatment converted to an ordinal scale (Small, Medium, Large)
+#' @return GrpSize. Specifies the size of each group in the simulated experiments.
+#' @return Diff. The size of the difference between the control and treatment converted to an ordinal scale (Small, Medium, Large)
 #' @return NPBias The relative difference between the average of the observed values of either Cliff's d or centralised PHat and the population value
 #' @return StdMDBias. The relative difference between the average of the observed values of StdMDBias and the theoretical value
 #' @return NPMdMRE The median of the absolute relative difference between the observed values of either Cliff's d or centralised PHat and the theoretical value for each experiment.
@@ -5789,10 +5789,10 @@ calculate2GBias = function(mean = 0,
 #' @param seed A seed for the simulations (default 123).
 #' @param StdAdj Used to introduce variance heterogeneity for Laplace and Normal samples (default 0).
 #' @param Blockmean Specifies he value of the block effect (default 0).
-#' @return Design. Specifies the type of experiment 2G, the sample distribution (n,l,g,lap), and whethe variance heterogeneity was added (het)
+#' @return Design. Specifies the type of experiment 2G, the sample distribution (n,l,g,lap), and whether variance heterogeneity was added (het)
 #' @return BEIncluded. Specifies whether or not a block effect was introduced.
 #' @return GrpSize. Specifies the size of each group in the individual experiments.
-#' @return Diff. The size of the difference btween the control and treatment converted to an ordinal scale (Small, Medium, Large)
+#' @return Diff. The size of the difference between the control and treatment converted to an ordinal scale (Small, Medium, Large)
 #' @return NPBias The relative difference between the average of the observed values of either Cliff's d or centralised PHat and the population value
 #' @return StdMDBias. The relative difference between the average of the observed values of StdMDBias and the theoretical value
 #' @return NPMdMRE The median of the absolute relative difference between the observed values of either Cliff's d or centralised PHat and the theoretical value for each experiment.
@@ -5906,7 +5906,7 @@ calculate4GBias = function(mean = 0,
 
 #################################################################################################################################
 #' @title calculate4GType1Error
-#' @description The function simulates multiple four-group experiments and estimates the Type1 Error rate obtained from the set of simulated experiments. The Type1 Error is estimated as the pecentage of experiments for which the mean the experiment was significantly different from zero at the 0.05 significance level using two-sided tests. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a set of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+#' @description The function simulates multiple four-group experiments and estimates the Type1 Error rate obtained from the set of simulated experiments. The Type1 Error is estimated as the percentage of experiments for which the mean the experiment was significantly different from zero at the 0.05 significance level using two-sided tests. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a set of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @export  calculate4GType1Error
 #' @param mean This is the mean value of the control and treatment group(s) used in the simulations (default 0).
@@ -6004,7 +6004,7 @@ calculate4GType1Error = function(mean = 0,
 #' @param d.variance The estimate of the variance of the overall estimate of Cliff's d
 #' @param d.df The total degrees of freedom for the set of effect sizes. If d.df>0, the pvalues and significance test use the t-distribution probability values. If d.df=0 (default) the pvalues and significance test use the normal distribution probability values. The confidence intervals are always based on the normal probability values.
 #' @param alpha The significance level used to control the significance tests and calculation of confidence limits (default 0.05).
-#' @param alternative Specifies the type of signficance test and can take the values "two.sided", "less" or "greater" (default "two.sided").
+#' @param alternative Specifies the type of significance test and can take the values "two.sided", "less" or "greater" (default "two.sided").
 #' @return d.tvalue The value of the t-statistic
 #' @return d.pvalue The p-value of the t-test if the parameter d.df>0, or the normal probability value if d.df=0
 #' @return d.ci.lower The lower 100*(1-alpha/2)% confidence interval based on the normal probability value
@@ -6108,7 +6108,7 @@ calcCliffdTestStatistics = function(d.value,
 #' @param Cliffd A vector of one or more numerical values, identifying the effect sizes to be meta-analysed
 #' @param  Cliffdvar A vector of the estimates variance of each of the effect sizes
 #' @param df The total degrees of freedom for the set of effect sizes. If df>0, the pvalues and significance test use the t-distribution probability values. If df=0 (default) the pvalues and significance test use the normal distribution probability values. The confidence intervals are always based on the normal probability values, as recommended by Cliff.
-#' @param alternative Specifies the type of signficance test and can take the values "two.sided" (default), "less" or "greater".
+#' @param alternative Specifies the type of significance test and can take the values "two.sided" (default), "less" or "greater".
 #' @param alpha The significance level used to control the significance tests and calculation of confidence limits (default 0.05).
 #' @return Estimate The overall estimate of Cliff's d obtained from the set of experiments
 #' @return UpperCI The upper 100*(1-alpha/2)% confidence interval based on the normal probability value
@@ -6116,7 +6116,7 @@ calcCliffdTestStatistics = function(d.value,
 #' @return The variance of the Estimate
 #' @return tvalue The value of the t-statistic
 #' @return df The supplied degrees of freedom or NA if the input parameter df was set to zero
-#' @return AltHyp Defines the alternative hypothesis used for significnace testing and depends on the value of the input parameter alternative. It takes the values "Not=0", ">0", or "<0"
+#' @return AltHyp Defines the alternative hypothesis used for significance testing and depends on the value of the input parameter alternative. It takes the values "Not=0", ">0", or "<0"
 #' @return NullHyp Defines the null hypothesis and depends on the value of the input parameter alternative. It takes the values "~0", "<0", or ">0"
 #' @return pvalue The p-value of the t-test if the parameter df>0, or the normal probability value if d=0
 #' @return RejectNullHyp "Yes" or "No" depending on whether or not the null hypothesis should be rejected at the alpha/2 level for two-sided tests and alpha level for one-sided tests
@@ -6271,9 +6271,9 @@ metaanalyse.Cliffd <-
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @param effectsize The overall estimate of the centralized PHat (i.e. Phat-0.5) from a group of effect sizes to be meta-analysed
 #' @param effectsize.variance The estimate of the variance of the overall estimate ofPHat
-#' @param effectsize.df The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confience intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.
+#' @param effectsize.df The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confidence intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.
 #' @param alpha The significance level (default 0.05) used to control the significance tests and calculation of confidence limits.
-#' @param alternative Specifies the type of signficance test and can take the values "less" or "greater" (default).
+#' @param alternative Specifies the type of significance test and can take the values "less" or "greater" (default).
 #' @return ES.test The value of the t-statistic
 #' @return ES.pvalue The p-value of the two-sided t-test if the parameter d.df>0, or the normal probability value if d.df=0
 #' @return ES.sig The significance of the statistical test of the d.tvalue return value at the alpha level for one sided tests and aplha/2 for two sided tests as specified by the input parameter alternative.
@@ -6358,7 +6358,7 @@ PHatonesidedTestStatistics = function(effectsize,
 #' @author Barbara Kitchenham and Lech Madeyski
 #' @param effectsize The overall estimate of the centralized PHat (ie.Phat-0.5) from a group of effect sizes to be meta-analysed
 #' @param effectsize.variance The estimate of the variance of the overall estimate ofPHat
-#' @param effectsize.df The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confience intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.
+#' @param effectsize.df The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confidence intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.
 #' @param alpha The significance level (default 0.05) used to control the significance tests and calculation of confidence limits.
 #' @return ES.test The value of the t-statistic
 #' @return ES.pvalue The p-value of the two-sided t-test if the parameter d.df>0, or the normal probability value if d.df=0
@@ -6425,9 +6425,9 @@ PHattwosidedTestStatistics = function(effectsize,
 #' @export calcPHatMATestStatistics
 #' @param effectsize The overall estimate of the centralized PHat (ie.Phat-0.5) from a group of effect sizes to be meta-analysed
 #' @param effectsize.variance The estimate of the variance of the overall estimate ofPHat
-#' @param effectsize.df The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confience intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.
+#' @param effectsize.df The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confidence intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.
 #' @param alpha The significance level used to control the significance tests and calculation of confidence limits (default 0.05).
-#' @param alternative Specifies the type of signficance test and can take the values "two.sided" (default), "less" or "greater"
+#' @param alternative Specifies the type of significance test and can take the values "two.sided" (default), "less" or "greater"
 #' @return ES.test The value of the t-statistic
 #' @return ES.pvalue The p-value of the t-test if the parameter d.df>0, or the normal probability value if d.df=0
 #' @return ES.sig The significance of the statistical test of the d.tvalue return value at the alpha level for one sided tests and aplha/2 for two sided tests as specified by the input parameter alternative.
@@ -6512,7 +6512,7 @@ calcPHatMATestStatistics = function(effectsize,
 #' @param PHatvar The estimate of the variance of each PHat estimate
 #' @param DFUnknown If DFUnknown=FALSE the degrees of freedom for each experiment is known, and the df parameter must be a vector specifying the effect size of each experiment, otherwise the df parameter is ignored.
 #' @param df If DFUnknown is TRUE, this parameter is a vector of numerical values specifying the degrees of freedom for each experiment, and the confidence intervals, pvalues and significance test use the t-distribution probability values. If the parameter DFUNknown is FALSE, the confidence intervals, pvalues and significance test use the normal distribution probability values.
-#' @param alternative Specifies the type of signficance test and can take the values "two.sided" (default), "less" or "greater".
+#' @param alternative Specifies the type of significance test and can take the values "two.sided" (default), "less" or "greater".
 #' @param alpha The significance level (default 0.05) used to control the significance tests and calculation of confidence limits.
 #' @return Estimate. The simple average of the PHat values recommended by Kromrey as the best estimator for meta-analysis.
 #' @return UpperCI The upper 100*(1-alpha/2)% confidence interval of the average PHat based on the t-distribution probability values if DFUnknown is FALSE, or normal probability values if DFUnknown is TRUE.
