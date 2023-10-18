@@ -82,8 +82,9 @@ The function simulates four-group experiments and estimates of the power, indivi
 #  2 4G_l         No      10 Medium -0.01760204 0.1565643 0.3112245  0.4426859 0.692550   0.3851..
 #  3 4G_l         No      10  Large -0.00326087 0.2273638 0.1594203  0.2924361 0.843875   0.6877..
 as.data.frame(calculate4GBias(mean=1,sd=3,diff=c(0.1225,0.3415,0.6224),
- Expected.StdMD=c(-0.208,-0.52,-0.833),Expected.PHat=c(0.444,0.360,0.277),N=20,reps=40,type="g",
+ Expected.StdMD=c(-0.208,-0.52,-0.833),Expected.PHat=c(0.444,0.360,0.277),N=20,reps=30,type="g",
  seed=17+977,StdAdj=0 ,Blockmean=0.5))
+# Results for reps=200:
 #  Design BEIncluded GrpSize   Diff     NPBias  StdMDBias   NPMdMRE StdMDMdMRE   ObsPHat  ObsCli..
 #1   4G_g        Yes      20  Small 0.04274554 0.02242895 0.8370536  0.7960052 0.4416062 -0.1167..
 #2   4G_g        Yes      20 Medium 0.01959821 0.01585829 0.3348214  0.3210435 0.3572562 -0.2854..

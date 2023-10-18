@@ -77,7 +77,7 @@ The function simulates two-group experiments and estimates the power, individual
 # 2 2G_n_het       5 Medium  3.486239e-02 0.09914637 1.385321  1.3502057  0.6128    0.2256 0.430..
 # 3 2G_n_het       5  Large  2.222222e-02 0.10446123 0.754386  0.8626523  0.6748    0.3496 0.693..
 as.data.frame(calculate2GBias(mean=0,sd=1,diff=c(0.283,0.707104,1.131374),
- Expected.StdMD=c(0.157,0.392,0.628),Expected.PHat=c(0.556,0.636,0.705),N=10, reps=50,
+ Expected.StdMD=c(0.157,0.392,0.628),Expected.PHat=c(0.556,0.636,0.705),N=10, reps=20,
  type="lap",seed=1423,StdAdj=0.5 ))
  #Parameter reps changed due to NOTE "Examples with CPU (user + system) or elapsed time > 5s"
  #Results for reps=100:
