@@ -22,7 +22,7 @@ metaanalyse.PHat(
 
 \item{df}{If DFUnknown is TRUE, this parameter is a vector of numerical values specifying the degrees of freedom for each experiment, and the confidence intervals, pvalues and significance test use the t-distribution probability values. If the parameter DFUNknown is FALSE, the confidence intervals, pvalues and significance test use the normal distribution probability values.}
 
-\item{alternative}{Specifies the type of signficance test and can take the values "two.sided" (default), "less" or "greater".}
+\item{alternative}{Specifies the type of significance test and can take the values "two.sided" (default), "less" or "greater".}
 
 \item{alpha}{The significance level (default 0.05) used to control the significance tests and calculation of confidence limits.}
 }

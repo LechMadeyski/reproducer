@@ -17,11 +17,11 @@ PHatonesidedTestStatistics(
 
 \item{effectsize.variance}{The estimate of the variance of the overall estimate ofPHat}
 
-\item{effectsize.df}{The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confience intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.}
+\item{effectsize.df}{The total degrees of freedom for the set of effect sizes. If effectsize.df>0, the confidence intervals, pvalues and significance test use the t-distribution probability values. If effectsize.df=0 (default), the confidence intervals, the pvalues and significance test use the normal distribution probability values.}
 
 \item{alpha}{The significance level (default 0.05) used to control the significance tests and calculation of confidence limits.}
 
-\item{alternative}{Specifies the type of signficance test and can take the values "less" or "greater" (default).}
+\item{alternative}{Specifies the type of significance test and can take the values "less" or "greater" (default).}
 }
 \value{
 ES.test The value of the t-statistic

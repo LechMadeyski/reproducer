@@ -30,7 +30,7 @@ calculate2GBias(
 
 \item{Expected.StdMD}{This defines the theoretical value of the average StdMD obtained from the simulations for each mean difference. (default c(0.2, 0.5, 0.8))}
 
-\item{Expected.PHat}{This defines the expected population value of the average Phat obtained from the simulationsfor each mean difference (default c(0.556,0.638,0.714)).}
+\item{Expected.PHat}{This defines the expected population value of the average Phat obtained from the simulations for each mean difference (default c(0.556,0.638,0.714)).}
 
 \item{type}{This specifies the distribution of the data samples that will be simulated. Options ae "n" for Normal, "l", for Log-normal,'g" for Gamma, "lap" for LaPlace (default "n").}
 
@@ -41,9 +41,9 @@ calculate2GBias(
 \value{
 Design. Specifies the type of experiment, the sample distribution (n,l,g,lap), and whether variance heterogeneity was added (het)
 
-GrpSize. Specifies the size of each group in the simulatedl experiments.
+GrpSize. Specifies the size of each group in the simulated experiments.
 
-Diff. The size of the difference btween the control and treatment converted to an ordinal scale (Small, Medium, Large)
+Diff. The size of the difference between the control and treatment converted to an ordinal scale (Small, Medium, Large)
 
 NPBias The relative difference between the average of the observed values of either Cliff's d or centralised PHat and the population value
 
@@ -66,7 +66,7 @@ CliffdPower. The percentage of the simulations, for a specific mean difference, 
 StdMDPower. The percentage of the simulations, for a specific mean difference, for which the StdMD estimate was significantly different from zero at the 0.05 alpha level based on one-sided tests.
 }
 \description{
-The function simulates two-group experiments and estimates the power, individual estimate error, and the small sample bias obtained obtained from the set of simulated experiments. The set of simulations for a specific mean difference are repeated for three different values of the difference between the treatment and control groups specified by the parameter "diff". The power is estimated as the pecentage of experiments for which the  mean of the experiment was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a table of values identifing the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated experiments. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+The function simulates two-group experiments and estimates the power, individual estimate error, and the small sample bias obtained obtained from the set of simulated experiments. The set of simulations for a specific mean difference are repeated for three different values of the difference between the treatment and control groups specified by the parameter "diff". The power is estimated as the percentage of experiments for which the  mean of the experiment was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The output is a table of values identifying the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated experiments. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 }
 \examples{
 # as.data.frame(calculate2GBias(mean=0,sd=1,diff=c(0.2,0.5,0.8),Expected.StdMD=c(0.157,0.392,0.628),

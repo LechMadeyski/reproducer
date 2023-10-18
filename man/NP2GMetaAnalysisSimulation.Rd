@@ -31,7 +31,7 @@ NP2GMetaAnalysisSimulation(
 
 \item{Exp}{is the number of experiments being simulated. Exp should be an integer of 2 or more. It defaults to 5.}
 
-\item{type}{specifies the distribution being simulated. The permited values are "n" for the normal distribution,  "l" for the lognormal distribution, "g" for the gamma distribution and "lap" for the Laplace distribution. The parameter defaults to "n".}
+\item{type}{specifies the distribution being simulated. The permitted values are "n" for the normal distribution,  "l" for the lognormal distribution, "g" for the gamma distribution and "lap" for the Laplace distribution. The parameter defaults to "n".}
 
 \item{StdAdj}{specifies a level used to adjust the treatment variance. It allows heterogeneity to be modelled. It defaults to zero meaning no variance heterogeneity is introduced.}
 
@@ -43,15 +43,15 @@ NP2GMetaAnalysisSimulation(
 
 \item{MAMethod}{the meta-analysis method needed for the call to the metafor package rma algorithm}
 
-\item{returnES}{Determines the format of the output. It defaults to FALSE which causes the function to output the meta-anaysis results for the family of experiments. If set to TRUE it returns the effect sizes for each experiment.}
+\item{returnES}{Determines the format of the output. It defaults to FALSE which causes the function to output the meta-analysis results for the family of experiments. If set to TRUE it returns the effect sizes for each experiment.}
 
 \item{AlwaysTwoSidedTests}{If FALSE the function performs one-sided tests if diff!=0, and two-sided tests if diff=0. If set to TRUE the function alsways does two-sided tests.}
 }
 \value{
-Depending on the value of the returnES parameter, the function either returns the effect sizes for each experiment or the aggregated resutls for the family
+Depending on the value of the returnES parameter, the function either returns the effect sizes for each experiment or the aggregated results for the family
 }
 \description{
-This function simulates data from a family of experiments. The parameter Exp deteremines the number of experiments in the family. The function simulates data from one of four distributions and uses the data to construct two of groups of equal size (GroupSize). The distribution for one  of the groups corresponds to the control and is based on the given mean and spread, the distribution for the other group corresponds to the treatment group and  is based on the mean+diff and the spread plus any variance adjustment requested (determined by the parametrt StdAdj). The data from each experiment is analysed separately to estimate three non-parametric effect sizes: the Cliff's d and the probability of superiority referred to as phat and their variances. Parametric effect sizes Cohen's d (also known as the standarized means difference, SMD) and the small sample size adjusted standardized mean difference g are also calculated together with their variances. The effect sizes are then meta-analysed using various methods: the simple average of the effect size and the variance weighted averages (using the exact and approximate normal variance and the weighted and unweighted standardized mean difference). The function uses the metafor package for formal meta-analysis, and the specific method of formal meta-analysis used is determined by the MAMethod. All tests of signficance are done at the 0.05 level. If the parameter returnES is TRUE, the function returns the effect sizes for each experiment in the family, otherwise it returns the meta-analysis results.
+This function simulates data from a family of experiments. The parameter Exp determines the number of experiments in the family. The function simulates data from one of four distributions and uses the data to construct two of groups of equal size (GroupSize). The distribution for one  of the groups corresponds to the control and is based on the given mean and spread, the distribution for the other group corresponds to the treatment group and  is based on the mean+diff and the spread plus any variance adjustment requested (determined by the parameter StdAdj). The data from each experiment is analysed separately to estimate three non-parametric effect sizes: the Cliff's d and the probability of superiority referred to as phat and their variances. Parametric effect sizes Cohen's d (also known as the standarized means difference, SMD) and the small sample size adjusted standardized mean difference g are also calculated together with their variances. The effect sizes are then meta-analysed using various methods: the simple average of the effect size and the variance weighted averages (using the exact and approximate normal variance and the weighted and unweighted standardized mean difference). The function uses the metafor package for formal meta-analysis, and the specific method of formal meta-analysis used is determined by the MAMethod. All tests of significance are done at the 0.05 level. If the parameter returnES is TRUE, the function returns the effect sizes for each experiment in the family, otherwise it returns the meta-analysis results.
 }
 \examples{
 as.data.frame(NP2GMetaAnalysisSimulation(mean=0,sd=1,diff=0.5,GroupSize=10,

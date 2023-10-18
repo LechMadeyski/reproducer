@@ -21,7 +21,7 @@ calcCliffdTestStatistics(
 
 \item{alpha}{The significance level used to control the significance tests and calculation of confidence limits (default 0.05).}
 
-\item{alternative}{Specifies the type of signficance test and can take the values "two.sided", "less" or "greater" (default "two.sided").}
+\item{alternative}{Specifies the type of significance test and can take the values "two.sided", "less" or "greater" (default "two.sided").}
 }
 \value{
 d.tvalue The value of the t-statistic

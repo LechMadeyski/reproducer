@@ -42,13 +42,13 @@ calculate4GBias(
 \item{Blockmean}{Specifies he value of the block effect (default 0).}
 }
 \value{
-Design. Specifies the type of experiment 2G, the sample distribution (n,l,g,lap), and whethe variance heterogeneity was added (het)
+Design. Specifies the type of experiment 2G, the sample distribution (n,l,g,lap), and whether variance heterogeneity was added (het)
 
 BEIncluded. Specifies whether or not a block effect was introduced.
 
 GrpSize. Specifies the size of each group in the individual experiments.
 
-Diff. The size of the difference btween the control and treatment converted to an ordinal scale (Small, Medium, Large)
+Diff. The size of the difference between the control and treatment converted to an ordinal scale (Small, Medium, Large)
 
 NPBias The relative difference between the average of the observed values of either Cliff's d or centralised PHat and the population value
 

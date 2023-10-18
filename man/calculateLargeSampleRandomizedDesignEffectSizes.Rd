@@ -25,12 +25,12 @@ calculateLargeSampleRandomizedDesignEffectSizes(
 
 \item{type}{the distribution of the data to be generated (default "n").}
 
-\item{StdAdj}{a value that can be added to sdC to introduce heterogeneity into the tretament group (default 0).}
+\item{StdAdj}{a value that can be added to sdC to introduce heterogeneity into the treatment group (default 0).}
 
-\item{reporttrans}{If set to "Yes" AND type="l" the algorithm returns the values obtained by anaysing applying the logarithmic transformation to the simulated data (default "No").}
+\item{reporttrans}{If set to "Yes" AND type="l" the algorithm returns the values obtained by analysing applying the logarithmic transformation to the simulated data (default "No").}
 }
 \value{
-A tibble identifying the sample satistics and the values of the probability of superiority, Cliff's d and StdMD (labelled StdES)
+A tibble identifying the sample statistics and the values of the probability of superiority, Cliff's d and StdMD (labelled StdES)
 }
 \description{
 The function simulates a large experiment  to estimate the asymptotic values of the probability of superiority, Cliff's d and the standardized mean difference data for a two group randomized experiment for four different distributions: Normal (i.e. type="n"), log-normal (i.e. type="l"), gama (i.e. tyep="g") and Laplace (i.e., type="lap").

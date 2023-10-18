@@ -19,7 +19,7 @@ metaanalyse.Cliffd(
 
 \item{df}{The total degrees of freedom for the set of effect sizes. If df>0, the pvalues and significance test use the t-distribution probability values. If df=0 (default) the pvalues and significance test use the normal distribution probability values. The confidence intervals are always based on the normal probability values, as recommended by Cliff.}
 
-\item{alternative}{Specifies the type of signficance test and can take the values "two.sided" (default), "less" or "greater".}
+\item{alternative}{Specifies the type of significance test and can take the values "two.sided" (default), "less" or "greater".}
 
 \item{alpha}{The significance level used to control the significance tests and calculation of confidence limits (default 0.05).}
 }
@@ -36,7 +36,7 @@ tvalue The value of the t-statistic
 
 df The supplied degrees of freedom or NA if the input parameter df was set to zero
 
-AltHyp Defines the alternative hypothesis used for significnace testing and depends on the value of the input parameter alternative. It takes the values "Not=0", ">0", or "<0"
+AltHyp Defines the alternative hypothesis used for significance testing and depends on the value of the input parameter alternative. It takes the values "Not=0", ">0", or "<0"
 
 NullHyp Defines the null hypothesis and depends on the value of the input parameter alternative. It takes the values "~0", "<0", or ">0"
 

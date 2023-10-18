@@ -44,7 +44,7 @@ calculateMAType1Error(
 
 \item{BlockStdAdj}{Not used (default 0).}
 
-\item{StdExp}{Used to introduce hetrogeneity among families of experiments (default 0).}
+\item{StdExp}{Used to introduce heterogeneity among families of experiments (default 0).}
 
 \item{MAMethod}{Not used (default "PM").}
 
@@ -70,7 +70,7 @@ CliffdType1ER. The percentage of the simulations, for a specific group size, for
 StdMDType1ER. The percentage of the simulations, for a specific group size, for which the overall StdMD estimate was significantly different from zero at the nominated alpha level.
 }
 \description{
-The function simulates multiple five group families of either two-group or four-group experiments and estimates the Type1 Error rate obtained after synthesizing  the analysis results obtained from the experiments in each family. The Type1 Error is estimated as the pecentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different sample sizes depending on the parameter N. The output is a table of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates for each set of simulated families. The synthesis method for all three effect sizes is based on calculating the overall mean and variance for the family of experiments, and then using those values to calculate the effect size variance and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+The function simulates multiple five group families of either two-group or four-group experiments and estimates the Type1 Error rate obtained after synthesizing  the analysis results obtained from the experiments in each family. The Type1 Error is estimated as the percentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different sample sizes depending on the parameter N. The output is a table of values identifying three observed effect size estimates (Cliff's d, PHat and StdMD) and their related type 1 error rates for each set of simulated families. The synthesis method for all three effect sizes is based on calculating the overall mean and variance for the family of experiments, and then using those values to calculate the effect size variance and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 }
 \examples{
 # as.data.frame(calculateMAType1Error(mean=0,sd=1,N=c(5,10),reps=10,type="n",Experiments=5,

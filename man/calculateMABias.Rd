@@ -50,7 +50,7 @@ calculateMABias(
 
 \item{Blockmean}{Used to set a fixed block effect for four-group experiments (default 0).}
 
-\item{StdExp}{Used to introduce hetrogeneity among families of experiments (default 0).}
+\item{StdExp}{Used to introduce heterogeneity among families of experiments (default 0).}
 
 \item{MAMethod}{Not used (default "PM").}
 
@@ -63,7 +63,7 @@ BEIncluded. Specifies whether or not a block effect was introduced. Always set t
 
 GrpSize. Specifies the size of each group in the individual experiments.
 
-Diff. The size of the difference btween the control and treatment converted to an ordinal scale (Small, Medium, Large)
+Diff. The size of the difference between the control and treatment converted to an ordinal scale (Small, Medium, Large)
 
 NPBias The relative difference between the average of the observed values of either Cliff's d or centralised PHat and the population value
 
@@ -79,14 +79,14 @@ ObsCliffd. The average of the average Cliffd value found for each family in the 
 
 ObsStdES. The average of StdMD calculated for each family in the set of simulations.
 
-PHatPower. The percentage of the simulations, for a speific mean difference, for which the overall Phat estimate was significantly different from zero at the nominated alpha level using one-sided tests.
+PHatPower. The percentage of the simulations, for a specific mean difference, for which the overall Phat estimate was significantly different from zero at the nominated alpha level using one-sided tests.
 
-CliffdPower. The percentage of the simulations, for a speific mean difference, for which the overall Cliff's d estimate was significantly different from zero at the nominated alpha level using one-sided tests.
+CliffdPower. The percentage of the simulations, for a specific mean difference, for which the overall Cliff's d estimate was significantly different from zero at the nominated alpha level using one-sided tests.
 
-StdMDPower. The percentage of the simulations, for a speific mean difference, for which the overall StdMD estimate was significantly different from zero at the nominated alpha level using one-sided tests.
+StdMDPower. The percentage of the simulations, for a specific mean difference, for which the overall StdMD estimate was significantly different from zero at the nominated alpha level using one-sided tests.
 }
 \description{
-The function simulates multiple five group families of either two-group or four-group experiments and estimates the power, individual estimate error, and the small sample bias obtained after synthesizing the analysis results obtained from the experiments in each family. The power is estimated as the pecentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different mean differences between the control mean and treatment mean depending on the parameter diff. The output is a table of values identifying the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated families. The synthesis method for all the effect sizes is based on calculating the overall mean and variance for experiments in each family and then using those values to calculate the overall effect size and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
+The function simulates multiple five group families of either two-group or four-group experiments and estimates the power, individual estimate error, and the small sample bias obtained after synthesizing the analysis results obtained from the experiments in each family. The power is estimated as the percentage of families for which the overall mean of the five experiments was significantly different from zero. The experiment data may be one of four different type: Normal, Log-normal, Gamma or Laplace. The simulations can be repeated for different mean differences between the control mean and treatment mean depending on the parameter diff. The output is a table of values identifying the observed values of three effect sizes: Cliff's d, PHat and StdMD, estimate error and their related small sample bias and power for each set of simulated families. The synthesis method for all the effect sizes is based on calculating the overall mean and variance for experiments in each family and then using those values to calculate the overall effect size and its variance. This function supports the production of the values reported in data tables in the paper "Recommendations for Analyzing Small Sample Size Software Engineering Experiments" and its Supplementary Material.
 }
 \examples{
 # as.data.frame(calculateMABias(mean=0,sd=1,N=10,diff=c(0.2,0.5,0.8), Experiments=5,reps=10,
