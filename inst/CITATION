@@ -4,6 +4,16 @@ year = sub('.*(2[[:digit:]]{3})-.*', '\\1', meta$Date, perl = TRUE)
 vers = paste('R package version', meta$Version)
 
 bibentry(
+  bibtype = 'manual',
+  title = paste('reproducer:', meta$Title),
+  author = Filter(function(p) 'aut' %in% p$role, as.person(meta$Author)),
+  year = year,
+  note = vers,
+  url = meta$URL,
+  textVersion = paste('Lech Madeyski (', year, '). reproducer: ', meta$Title, '. ', vers, '. ', meta$URL, sep = '')
+)
+
+bibentry(
   bibtype      = "Article",
   title        = "Which process metrics can significantly improve defect prediction models? An empirical study",
   author       = c(person(given = "Lech", family = "Madeyski"),
@@ -22,25 +32,6 @@ bibentry(
         "Online: https://dx.doi.org/10.1007/s11219-014-9241-7")
 )
 
-
-bibentry(
-  bibtype      = "Article",
-  title        = "Cross-project defect prediction with respect to code ownership model: An empirical study",
-  author       = c(person(given = "Marian", family = "Jureczko"),
-                   person(given = "Lech", family = "Madeyski")),
-  journal      = "e-Informatica Software Engineering Journal",
-  year         = "2015",
-  volume       = "9",
-  number       = "1",
-  pages        = "21--35",
-  doi          = "10.5277/e-Inf150102",
-  url          = "https://dx.doi.org/10.5277/e-Inf150102",
-  textVersion  = paste("Marian Jureczko, Lech Madeyski (2015).",
-        "Cross-project defect prediction with respect to code ownership model: An empirical study",
-        "e-Informatica Software Engineering Journal, vol. 9, no. 1, pp. 21-35",
-        "DOI: 10.5277/e-Inf150102",
-        "Online: https://dx.doi.org/10.5277/e-Inf150102")
-)
 
 bibentry(
   bibtype      = "Article",
@@ -153,13 +144,4 @@ bibentry(
 )
 
 
-bibentry(
-  bibtype = 'manual',
-  title = paste('reproducer:', meta$Title),
-  author = Filter(function(p) 'aut' %in% p$role, as.person(meta$Author)),
-  year = year,
-  note = vers,
-  url = meta$URL,
-  textVersion = paste('Lech Madeyski (', year, '). reproducer: ', meta$Title, '. ', vers, '. ', meta$URL, sep = '')
-)
 
